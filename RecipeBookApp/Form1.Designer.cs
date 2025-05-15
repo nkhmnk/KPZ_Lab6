@@ -16,6 +16,7 @@
         private void InitializeComponent()
         {
             this.dgvRecipes = new System.Windows.Forms.DataGridView();
+            this.pnlCategories = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecipes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -30,11 +31,20 @@
             this.dgvRecipes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRecipes.Size = new System.Drawing.Size(1129, 600);
             this.dgvRecipes.TabIndex = 0;
+      
+            // 
+            // pnlCategories
+            // 
+            this.pnlCategories.Location = new System.Drawing.Point(1155, 20);
+            this.pnlCategories.Name = "pnlCategories";
+            this.pnlCategories.Size = new System.Drawing.Size(200, 600);
+            this.pnlCategories.TabIndex = 7;
             // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(1366, 749);
             this.Controls.Add(this.dgvRecipes);
+            this.Controls.Add(this.pnlCategories);
             this.Name = "Form1";
             this.Text = "Recipe Book";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -46,5 +56,6 @@
 
 
         private System.Windows.Forms.DataGridView dgvRecipes;
+        private System.Windows.Forms.Panel pnlCategories;
     }
 }
