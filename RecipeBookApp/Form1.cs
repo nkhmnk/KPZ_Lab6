@@ -155,5 +155,21 @@ namespace RecipeBookApp
         {
 
         }
+
+        private void btnEditRecipe_Click(object sender, EventArgs e)
+        {
+                if (dgvRecipes.SelectedRows.Count > 0)
+                {
+                    int recipeId = Convert.ToInt32(dgvRecipes.SelectedRows[0].Cells["Id"].Value);
+                    EditRecipeForm editRecipeForm = new EditRecipeForm(recipeId);
+                    editRecipeForm.StartPosition = FormStartPosition.CenterScreen;
+                    editRecipeForm.ShowDialog();
+                    LoadRecipes();
+                }
+                else
+                {
+                    MessageBox.Show("Будь ласка, виберіть рецепт для редагування.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+        }
     }
 }
