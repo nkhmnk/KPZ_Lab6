@@ -21,6 +21,7 @@ namespace RecipeBookApp
             this.dgvRecipes = new System.Windows.Forms.DataGridView();
             this.pnlCategories = new System.Windows.Forms.Panel();
             this.btnEditRecipe = new System.Windows.Forms.Button();
+            this.btnDeleteRecipe = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecipes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,7 +51,7 @@ namespace RecipeBookApp
             this.btnEditRecipe.BackColor = System.Drawing.Color.Khaki;
             this.btnEditRecipe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditRecipe.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnEditRecipe.Location = new System.Drawing.Point(50, 639);
+            this.btnEditRecipe.Location = new System.Drawing.Point(34, 639);
             this.btnEditRecipe.Name = "btnEditRecipe";
             this.btnEditRecipe.Size = new System.Drawing.Size(120, 45);
             this.btnEditRecipe.TabIndex = 8;
@@ -58,9 +59,23 @@ namespace RecipeBookApp
             this.btnEditRecipe.UseVisualStyleBackColor = false;
             this.btnEditRecipe.Click += new System.EventHandler(this.btnEditRecipe_Click);
             // 
+            // btnDeleteRecipe
+            // 
+            this.btnDeleteRecipe.BackColor = System.Drawing.Color.IndianRed;
+            this.btnDeleteRecipe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteRecipe.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnDeleteRecipe.Location = new System.Drawing.Point(175, 639);
+            this.btnDeleteRecipe.Name = "btnDeleteRecipe";
+            this.btnDeleteRecipe.Size = new System.Drawing.Size(120, 45);
+            this.btnDeleteRecipe.TabIndex = 9;
+            this.btnDeleteRecipe.Text = "Видалити";
+            this.btnDeleteRecipe.UseVisualStyleBackColor = false;
+            this.btnDeleteRecipe.Click += new System.EventHandler(this.btnDeleteRecipe_Click);
+            // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(1366, 749);
+            this.Controls.Add(this.btnDeleteRecipe);
             this.Controls.Add(this.btnEditRecipe);
             this.Controls.Add(this.dgvRecipes);
             this.Controls.Add(this.pnlCategories);
@@ -76,5 +91,6 @@ namespace RecipeBookApp
         private System.Windows.Forms.DataGridView dgvRecipes;
         private System.Windows.Forms.Panel pnlCategories;
         private Button btnEditRecipe;
+        private Button btnDeleteRecipe;
     }
 }
