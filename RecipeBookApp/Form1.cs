@@ -111,6 +111,17 @@ namespace RecipeBookApp
             }
         }
 
+        private void dgvRecipes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                int recipeId = Convert.ToInt32(dgvRecipes.Rows[e.RowIndex].Cells["Id"].Value);
+                RecipeDetailsForm detailsForm = new RecipeDetailsForm(recipeId);
+                detailsForm.StartPosition = FormStartPosition.CenterScreen;
+                detailsForm.ShowDialog();
+            }
+        }
+
         private void LoadRecipes()
         {
             using (MySqlConnection connection = new MySqlConnection(connectionString))
@@ -126,8 +137,7 @@ namespace RecipeBookApp
                     dgvRecipes.Columns["Id"].Visible = false;  
                 }
             }
-        } 
-
+        }
 
         private void HighlightActiveButton(Button activeButton)
         {
@@ -140,6 +150,10 @@ namespace RecipeBookApp
             activeCategoryButton.BackColor = System.Drawing.Color.LightBlue;
         }
 
-    
+
+        private void dgvRecipes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
