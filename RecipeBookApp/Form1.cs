@@ -171,5 +171,61 @@ namespace RecipeBookApp
                     MessageBox.Show("Будь ласка, виберіть рецепт для редагування.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
         }
+
+        private void DeleteRecipe(int recipeId)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    // Спочатку видаляємо записи з таблиці recipeingredients
+                    string deleteIngredientsQuery = "DELETE FROM recipeingredients WHERE RecipeId = @id";
+                    using (MySqlCommand deleteIngredientsCommand = new MySqlCommand(deleteIngredientsQuery, connection))
+                    {
+                        deleteIngredientsCommand.Parameters.AddWithValue("@id", recipeId);
+                        deleteIngredientsCommand.ExecuteNonQuery();
+                    }
+
+                    // Потім видаляємо записи з таблиці favoriterecipes
+                    string deleteFavoritesQuery = "DELETE FROM favoriterecipes WHERE RecipeId = @id";
+                    using (MySqlCommand deleteFavoritesCommand = new MySqlCommand(deleteFavoritesQuery, connection))
+                    {
+                        deleteFavoritesCommand.Parameters.AddWithValue("@id", recipeId);
+                        deleteFavoritesCommand.ExecuteNonQuery();
+                    }
+
+                    // Потім видаляємо запис з таблиці Recipes
+                    string deleteRecipeQuery = "DELETE FROM Recipes WHERE Id = @id";
+                    using (MySqlCommand deleteRecipeCommand = new MySqlCommand(deleteRecipeQuery, connection))
+                    {
+                        deleteRecipeCommand.Parameters.AddWithValue("@id", recipeId);
+                        deleteRecipeCommand.ExecuteNonQuery();
+                    }
+                }
+
+                MessageBox.Show("Рецепт успішно видалено!", "Підтвердження", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Виникла помилка: {ex.Message}", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnDeleteRecipe_Click(object sender, EventArgs e)
+        {
+            if (dgvRecipes.SelectedRows.Count > 0)
+            {
+                int recipeId = Convert.ToInt32(dgvRecipes.SelectedRows[0].Cells["Id"].Value);
+                DeleteRecipe(recipeId);
+                LoadRecipes();
+                LoadCategories();
+            }
+            else
+            {
+                MessageBox.Show("Будь ласка, виберіть рецепт для видалення.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
