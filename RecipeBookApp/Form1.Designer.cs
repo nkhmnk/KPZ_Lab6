@@ -1,4 +1,7 @@
-﻿namespace RecipeBookApp
+﻿using System;
+using System.Windows.Forms;
+
+namespace RecipeBookApp
 {
     partial class Form1
     {
@@ -31,7 +34,8 @@
             this.dgvRecipes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRecipes.Size = new System.Drawing.Size(1129, 600);
             this.dgvRecipes.TabIndex = 0;
-      
+            this.dgvRecipes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRecipes_CellContentClick);
+            this.dgvRecipes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRecipes_CellDoubleClick);
             // 
             // pnlCategories
             // 
@@ -51,9 +55,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecipes)).EndInit();
             this.ResumeLayout(false);
-
         }
-
 
         private System.Windows.Forms.DataGridView dgvRecipes;
         private System.Windows.Forms.Panel pnlCategories;
