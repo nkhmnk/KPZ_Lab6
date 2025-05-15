@@ -20,6 +20,7 @@ namespace RecipeBookApp
         {
             this.dgvRecipes = new System.Windows.Forms.DataGridView();
             this.pnlCategories = new System.Windows.Forms.Panel();
+            this.btnEditRecipe = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecipes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,9 +45,23 @@ namespace RecipeBookApp
             this.pnlCategories.Size = new System.Drawing.Size(200, 600);
             this.pnlCategories.TabIndex = 7;
             // 
+            // btnEditRecipe
+            // 
+            this.btnEditRecipe.BackColor = System.Drawing.Color.Khaki;
+            this.btnEditRecipe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditRecipe.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnEditRecipe.Location = new System.Drawing.Point(50, 639);
+            this.btnEditRecipe.Name = "btnEditRecipe";
+            this.btnEditRecipe.Size = new System.Drawing.Size(120, 45);
+            this.btnEditRecipe.TabIndex = 8;
+            this.btnEditRecipe.Text = "Редагувати";
+            this.btnEditRecipe.UseVisualStyleBackColor = false;
+            this.btnEditRecipe.Click += new System.EventHandler(this.btnEditRecipe_Click);
+            // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(1366, 749);
+            this.Controls.Add(this.btnEditRecipe);
             this.Controls.Add(this.dgvRecipes);
             this.Controls.Add(this.pnlCategories);
             this.Name = "Form1";
@@ -55,9 +70,11 @@ namespace RecipeBookApp
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecipes)).EndInit();
             this.ResumeLayout(false);
+
         }
 
         private System.Windows.Forms.DataGridView dgvRecipes;
         private System.Windows.Forms.Panel pnlCategories;
+        private Button btnEditRecipe;
     }
 }
