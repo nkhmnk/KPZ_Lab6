@@ -98,6 +98,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddRecipeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddRecipeForm.Designer.cs">
+      <DependentUpon>AddRecipeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditRecipeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,12 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IngredientAmountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IngredientAmountForm.Designer.cs">
+      <DependentUpon>IngredientAmountForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -130,11 +142,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddRecipeForm.resx">
+      <DependentUpon>AddRecipeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditRecipeForm.resx">
       <DependentUpon>EditRecipeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IngredientAmountForm.resx">
+      <DependentUpon>IngredientAmountForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
