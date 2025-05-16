@@ -24,6 +24,7 @@ namespace RecipeBookApp
             this.btnDeleteRecipe = new System.Windows.Forms.Button();
             this.btnAddRecipe = new System.Windows.Forms.Button();
             this.btnSearchRecipe = new System.Windows.Forms.Button();
+            this.btnShowFavorites = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecipes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,9 +101,23 @@ namespace RecipeBookApp
             this.btnSearchRecipe.UseVisualStyleBackColor = false;
             this.btnSearchRecipe.Click += new System.EventHandler(this.btnSearchRecipe_Click);
             // 
+            // btnShowFavorites
+            // 
+            this.btnShowFavorites.BackColor = System.Drawing.Color.PaleVioletRed;
+            this.btnShowFavorites.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShowFavorites.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnShowFavorites.Location = new System.Drawing.Point(629, 639);
+            this.btnShowFavorites.Name = "btnShowFavorites";
+            this.btnShowFavorites.Size = new System.Drawing.Size(150, 45);
+            this.btnShowFavorites.TabIndex = 12;
+            this.btnShowFavorites.Text = "Улюблені";
+            this.btnShowFavorites.UseVisualStyleBackColor = false;
+            this.btnShowFavorites.Click += new System.EventHandler(this.btnShowFavorites_Click);
+            // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(1366, 749);
+            this.Controls.Add(this.btnShowFavorites);
             this.Controls.Add(this.btnSearchRecipe);
             this.Controls.Add(this.btnAddRecipe);
             this.Controls.Add(this.btnDeleteRecipe);
@@ -124,5 +139,6 @@ namespace RecipeBookApp
         private Button btnDeleteRecipe;
         private Button btnAddRecipe;
         private Button btnSearchRecipe;
+        private Button btnShowFavorites;
     }
 }

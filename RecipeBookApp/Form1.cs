@@ -228,5 +228,29 @@ namespace RecipeBookApp
             searchRecipeForm.StartPosition = FormStartPosition.CenterScreen;
             searchRecipeForm.ShowDialog();
         }
+        private void LoadFavoriteRecipes()
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = @"
+                    SELECT r.Id, r.Name AS 'Назва рецепту', r.Category AS 'Категорія', r.CookingTime AS 'Час приготування', r.TotalCalories AS 'Калорії'
+                    FROM Recipes r
+                    JOIN FavoriteRecipes f ON r.Id = f.RecipeId
+                    WHERE f.UserId = @userId";
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection))
+                {
+                    adapter.SelectCommand.Parameters.AddWithValue("@userId", loggedInUserId);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    dgvRecipes.DataSource = dataTable;
+                    dgvRecipes.Columns["Id"].Visible = false;
+                }
+            }
+        }
+        private void btnShowFavorites_Click(object sender, EventArgs e)
+        {
+                LoadFavoriteRecipes();
+        }
     }
 }
