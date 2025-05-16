@@ -23,6 +23,7 @@ namespace RecipeBookApp
             this.btnEditRecipe = new System.Windows.Forms.Button();
             this.btnDeleteRecipe = new System.Windows.Forms.Button();
             this.btnAddRecipe = new System.Windows.Forms.Button();
+            this.btnSearchRecipe = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecipes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,9 +87,23 @@ namespace RecipeBookApp
             this.btnAddRecipe.UseVisualStyleBackColor = false;
             this.btnAddRecipe.Click += new System.EventHandler(this.btnAddRecipe_Click);
             // 
+            // btnSearchRecipe
+            // 
+            this.btnSearchRecipe.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnSearchRecipe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearchRecipe.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnSearchRecipe.Location = new System.Drawing.Point(473, 639);
+            this.btnSearchRecipe.Name = "btnSearchRecipe";
+            this.btnSearchRecipe.Size = new System.Drawing.Size(150, 45);
+            this.btnSearchRecipe.TabIndex = 11;
+            this.btnSearchRecipe.Text = "Пошук рецепту";
+            this.btnSearchRecipe.UseVisualStyleBackColor = false;
+            this.btnSearchRecipe.Click += new System.EventHandler(this.btnSearchRecipe_Click);
+            // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(1366, 749);
+            this.Controls.Add(this.btnSearchRecipe);
             this.Controls.Add(this.btnAddRecipe);
             this.Controls.Add(this.btnDeleteRecipe);
             this.Controls.Add(this.btnEditRecipe);
@@ -108,5 +123,6 @@ namespace RecipeBookApp
         private Button btnEditRecipe;
         private Button btnDeleteRecipe;
         private Button btnAddRecipe;
+        private Button btnSearchRecipe;
     }
 }
