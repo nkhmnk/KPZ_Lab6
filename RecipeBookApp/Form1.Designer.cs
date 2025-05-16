@@ -22,6 +22,7 @@ namespace RecipeBookApp
             this.pnlCategories = new System.Windows.Forms.Panel();
             this.btnEditRecipe = new System.Windows.Forms.Button();
             this.btnDeleteRecipe = new System.Windows.Forms.Button();
+            this.btnAddRecipe = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecipes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,7 +65,7 @@ namespace RecipeBookApp
             this.btnDeleteRecipe.BackColor = System.Drawing.Color.IndianRed;
             this.btnDeleteRecipe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteRecipe.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnDeleteRecipe.Location = new System.Drawing.Point(175, 639);
+            this.btnDeleteRecipe.Location = new System.Drawing.Point(171, 639);
             this.btnDeleteRecipe.Name = "btnDeleteRecipe";
             this.btnDeleteRecipe.Size = new System.Drawing.Size(120, 45);
             this.btnDeleteRecipe.TabIndex = 9;
@@ -72,9 +73,23 @@ namespace RecipeBookApp
             this.btnDeleteRecipe.UseVisualStyleBackColor = false;
             this.btnDeleteRecipe.Click += new System.EventHandler(this.btnDeleteRecipe_Click);
             // 
+            // btnAddRecipe
+            // 
+            this.btnAddRecipe.BackColor = System.Drawing.Color.LightGreen;
+            this.btnAddRecipe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddRecipe.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnAddRecipe.Location = new System.Drawing.Point(307, 639);
+            this.btnAddRecipe.Name = "btnAddRecipe";
+            this.btnAddRecipe.Size = new System.Drawing.Size(150, 45);
+            this.btnAddRecipe.TabIndex = 10;
+            this.btnAddRecipe.Text = "Додати рецепт";
+            this.btnAddRecipe.UseVisualStyleBackColor = false;
+            this.btnAddRecipe.Click += new System.EventHandler(this.btnAddRecipe_Click);
+            // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(1366, 749);
+            this.Controls.Add(this.btnAddRecipe);
             this.Controls.Add(this.btnDeleteRecipe);
             this.Controls.Add(this.btnEditRecipe);
             this.Controls.Add(this.dgvRecipes);
@@ -92,5 +107,6 @@ namespace RecipeBookApp
         private System.Windows.Forms.Panel pnlCategories;
         private Button btnEditRecipe;
         private Button btnDeleteRecipe;
+        private Button btnAddRecipe;
     }
 }

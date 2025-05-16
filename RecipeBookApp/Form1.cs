@@ -122,22 +122,7 @@ namespace RecipeBookApp
             }
         }
 
-        private void LoadRecipes()
-        {
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
-            {
-                connection.Open();
-                string query = "SELECT Id, Name AS 'Назва рецепту', Category AS 'Категорія', CookingTime AS 'Час приготування', TotalCalories AS 'Калорії'" +
-                    " FROM Recipes";
-                using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection))
-                {
-                    DataTable dataTable = new DataTable();
-                    adapter.Fill(dataTable);
-                    dgvRecipes.DataSource = dataTable;
-                    dgvRecipes.Columns["Id"].Visible = false;  
-                }
-            }
-        }
+      
 
         private void HighlightActiveButton(Button activeButton)
         {
@@ -227,5 +212,19 @@ namespace RecipeBookApp
                 MessageBox.Show("Будь ласка, виберіть рецепт для видалення.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnAddRecipe_Click(object sender, EventArgs e)
+        {
+            AddRecipeForm addRecipeForm = new AddRecipeForm();
+            addRecipeForm.StartPosition = FormStartPosition.CenterScreen;
+            addRecipeForm.ShowDialog();
+            LoadRecipes();
+            LoadCategories();
+        }
+
+
+
+
+
     }
 }
