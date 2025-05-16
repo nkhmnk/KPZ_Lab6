@@ -222,9 +222,11 @@ namespace RecipeBookApp
             LoadCategories();
         }
 
-
-
-
-
+        private void btnSearchRecipe_Click(object sender, EventArgs e)
+        {
+            SearchRecipeForm searchRecipeForm = new SearchRecipeForm();
+            searchRecipeForm.StartPosition = FormStartPosition.CenterScreen;
+            searchRecipeForm.ShowDialog();
+        }
     }
 }
