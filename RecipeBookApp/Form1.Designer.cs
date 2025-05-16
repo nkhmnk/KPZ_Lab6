@@ -25,6 +25,7 @@ namespace RecipeBookApp
             this.btnAddRecipe = new System.Windows.Forms.Button();
             this.btnSearchRecipe = new System.Windows.Forms.Button();
             this.btnShowFavorites = new System.Windows.Forms.Button();
+            this.btnAddToFavorites = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecipes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,9 +115,23 @@ namespace RecipeBookApp
             this.btnShowFavorites.UseVisualStyleBackColor = false;
             this.btnShowFavorites.Click += new System.EventHandler(this.btnShowFavorites_Click);
             // 
+            // btnAddToFavorites
+            // 
+            this.btnAddToFavorites.BackColor = System.Drawing.Color.LightSalmon;
+            this.btnAddToFavorites.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddToFavorites.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnAddToFavorites.Location = new System.Drawing.Point(785, 639);
+            this.btnAddToFavorites.Name = "btnAddToFavorites";
+            this.btnAddToFavorites.Size = new System.Drawing.Size(180, 45);
+            this.btnAddToFavorites.TabIndex = 13;
+            this.btnAddToFavorites.Text = "Додати до улюблених";
+            this.btnAddToFavorites.UseVisualStyleBackColor = false;
+            this.btnAddToFavorites.Click += new System.EventHandler(this.btnAddToFavorites_Click);
+            // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(1366, 749);
+            this.Controls.Add(this.btnAddToFavorites);
             this.Controls.Add(this.btnShowFavorites);
             this.Controls.Add(this.btnSearchRecipe);
             this.Controls.Add(this.btnAddRecipe);
@@ -140,5 +155,6 @@ namespace RecipeBookApp
         private Button btnAddRecipe;
         private Button btnSearchRecipe;
         private Button btnShowFavorites;
+        private Button btnAddToFavorites;
     }
 }

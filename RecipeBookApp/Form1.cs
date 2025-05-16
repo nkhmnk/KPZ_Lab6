@@ -252,5 +252,64 @@ namespace RecipeBookApp
         {
                 LoadFavoriteRecipes();
         }
+
+
+        private void AddToFavorites(int recipeId)
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    // додаємо рецепт до улюблених
+                    string checkQuery = @"
+                SELECT COUNT(*) 
+                FROM FavoriteRecipes 
+                WHERE UserId = @userId AND RecipeId = @recipeId";
+
+                    using (MySqlCommand checkCommand = new MySqlCommand(checkQuery, connection))
+                    {
+                        checkCommand.Parameters.AddWithValue("@userId", loggedInUserId);
+                        checkCommand.Parameters.AddWithValue("@recipeId", recipeId);
+                        int count = Convert.ToInt32(checkCommand.ExecuteScalar());
+
+                        if (count > 0)
+                        {
+                            MessageBox.Show("Цей рецепт вже додано до улюблених!", "Інформація", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
+                    }
+
+                    //додаємо до таблці улюблених
+                    string query = @"
+                INSERT INTO FavoriteRecipes (UserId, RecipeId)
+                VALUES (@userId, @recipeId)";
+
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@userId", loggedInUserId);
+                        command.Parameters.AddWithValue("@recipeId", recipeId);
+                        command.ExecuteNonQuery();
+                    }
+                }
+
+                MessageBox.Show("Рецепт успішно додано до улюблених!", "Підтвердження", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Виникла помилка: {ex.Message}", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        private void btnAddToFavorites_Click(object sender, EventArgs e)
+        {
+            if (dgvRecipes.SelectedRows.Count > 0 && loggedInUserId > 0)
+            {
+                int recipeId = Convert.ToInt32(dgvRecipes.SelectedRows[0].Cells["Id"].Value);
+                AddToFavorites(recipeId);
+            }
+        }
     }
 }
