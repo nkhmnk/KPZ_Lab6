@@ -36,7 +36,7 @@ git clone https://github.com/yourusername/RecipeBookApp.git
 
 3. Переконатись, що у вас запущено MySQL-сервер.
 
-4. Створити базу даних `recipebookdb` та таблиці (`Recipes`, `RecipeIngredients`, `FavoriteRecipes`, `Users`), використовуючи SQL-скрипти з папки `newBD.sql`.
+4. Створити базу даних `recipebookdb` та таблиці (`Recipes`, `RecipeIngredients`, `FavoriteRecipes`, `Users`), використовуючи SQL-скрипти з файлу `newBD.sql`.
 
 5. Встановити правильні параметри підключення в `Form1.cs`:
 
@@ -119,6 +119,11 @@ RecipeBookApp/
 ├── RegisterForm.cs          # Реєстрація
 └── LoginForm.cs             # Вхід
 ```
+
+---
+## Перевірка на кількість рядочків
+
+![image](https://github.com/user-attachments/assets/449771e0-2f3d-4019-8eee-54fe818c76eb)
 
 ---
 
